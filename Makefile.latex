@@ -1,0 +1,37 @@
+# Makefile to simplify compiling and cleaning a Latex document directory
+# $ make 
+# $ make bib
+# $ make view
+# $ make clean
+# $ make distclean
+
+SHELL=/bin/bash
+
+
+TARGET := research_plan
+
+# Source files that match wildcard regular expressions
+SRC      := $(wildcard *.tex) $(wildcard *.bib)
+
+all:
+	pdflatex $(TARGET).tex
+
+clean:
+	rm -f *.{aux,bbl,bcf,blg,log,out,run.xml,toc} *~
+
+distclean: clean
+	rm -f $(TARGET).pdf
+
+view: $(TARGET).pdf
+	evince $(TARGET).pdf &
+
+bib: $(SRC)
+	biber $(TARGET)
+
+#%.pdf: %.tex $(SRC)
+#	pdflatex $<
+
+.SUFFIXES:
+.PRECIOUS: %.pdf
+.DELETE_ON_ERROR: %.pdf
+.PHONY: all clean distclean view bib
