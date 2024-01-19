@@ -1,3 +1,4 @@
+#!/bin/bash
 # Usage:
 #  $ source rsync_folders
 #  $ source rsync_folders back
@@ -36,17 +37,17 @@ then
 	let "i=$i+1";
     done
 else
-    echo "STORING FILES TO REMOVE DIR";
+    echo "STORING FILES TO REMOTE DIR";
     i=0;
     for src in ${SOURCES[@]}
     do
 	if [ ${DELETE_AT_TARGET[$i]} -eq 1 ]
 	then
-	    echo "EXECUTING" rsync -avu --modify-window=10 --delete ${SOURCEROOT}${SOURCES[$i]} ${TARGETS[$i]}
-	    rsync -avu --modify-window=10 --delete ${SOURCEROOT}${SOURCES[$i]} ${TARGETS[$i]}
+	    echo "EXECUTING" rsync -avu --modify-window=10 --delete ${SOURCEROOT}${SOURCES[$i]} ${TARGETROOT}
+	    rsync -avu --modify-window=10 --delete ${SOURCEROOT}${SOURCES[$i]} ${TARGETROOT}
 	else
-	    echo "EXECUTING" rsync -avu --modify-window=10 ${SOURCEROOT}${SOURCES[$i]} ${TARGETS[$i]}
-	    rsync -avu --modify-window=10 ${SOURCEROOT}${SOURCES[$i]} ${TARGETS[$i]}
+	    echo "EXECUTING" rsync -avu --modify-window=10 ${SOURCEROOT}${SOURCES[$i]} ${TARGETROOT}
+	    rsync -avu --modify-window=10 ${SOURCEROOT}${SOURCES[$i]} ${TARGETROOT}
 	fi;
 	let "i=$i+1";
     done
