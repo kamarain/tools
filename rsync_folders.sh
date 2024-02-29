@@ -1,6 +1,6 @@
 #!/bin/bash
 # Usage:
-#  $ source rsync_folders
+#  $ source rsync_folders (in MacOS ./rsync_folders.sh
 #  $ source rsync_folders back
 
 
@@ -32,8 +32,8 @@ then
     i=0;
     for src in ${SOURCES[@]}
     do
-	echo "EXECUTING" rsync -avu --modify-window=10 ${TARGETROOT}${SOURCES[$i]} ${SOURCEROOT}
-	rsync -avu --modify-window=10 ${TARGETROOT}${SOURCES[$i]} ${SOURCEROOT} 
+	echo "EXECUTING" rsync -avu ${TARGETROOT}${SOURCES[$i]} ${SOURCEROOT}
+	rsync -avu ${TARGETROOT}${SOURCES[$i]} ${SOURCEROOT} 
 	let "i=$i+1";
     done
 else
