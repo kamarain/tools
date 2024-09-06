@@ -1,14 +1,17 @@
 import csv
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
-csv_filename = '/home/kamarain/Downloads/DATA.ML.100-2023-2024-1-TAU Arvioinnit.csv'
+os.environ["XDG_SESSION_TYPE"] = "xcb"
 
-exercises_tot_colno=14-1
-hw_tot_colno=24-1
-tests_tot_colno=27-1
-points_tot_colno=30-1
-grade_colno=31-1
+csv_filename = '/home/kamarain/Documents/DATA.ML.200-2023-2024-1-TAU Grades.csv'
+
+exercises_tot_colno=10-1
+hw_tot_colno=18-1
+tests_tot_colno=22-1
+points_tot_colno=26-1
+grade_colno=27-1
 
 exercise_points = []
 homework_points = []
@@ -42,7 +45,7 @@ plt.title('Homework points histogram')
 plt.show()
 
 test_points_int = [eval(i) for i in test_points]
-plt.hist(test_points_int, bins=[0, 5, 10, 15, 20, 25])
+plt.hist(test_points_int, bins=[0, 5, 10, 15, 20, 25, 30])
 plt.title('Online points histogram')
 plt.show()
 
