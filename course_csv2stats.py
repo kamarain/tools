@@ -5,13 +5,13 @@ import os
 
 os.environ["XDG_SESSION_TYPE"] = "xcb"
 
-csv_filename = '/home/kamarain/Documents/DATA.ML.200-2023-2024-1-TAU Grades.csv'
+csv_filename = '/home/kamarain/Documents/DATA.ML.100 (2024-2025) Grades.csv'
 
-exercises_tot_colno=10-1
-hw_tot_colno=18-1
-tests_tot_colno=22-1
-points_tot_colno=26-1
-grade_colno=27-1
+exercises_tot_colno=4-1
+hw_tot_colno=5-1
+tests_tot_colno=6-1
+points_tot_colno=8-1
+grade_colno=9-1
 
 exercise_points = []
 homework_points = []
